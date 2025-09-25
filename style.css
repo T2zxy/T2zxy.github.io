@@ -1,11 +1,9 @@
-/* 全局变量 */
+/* 变量：一键换色 */
 :root {
-  --main: #ff7f50;
-  --bg: #fafafa;
-  --text: #333;
-  --muted: #777;
-  --radius: 8px;
-  --maxWidth: 720px;
+  --bg: #111;
+  --fg: #fff;
+  --accent: #ff7f50;
+  --font: "SF Pro Display", "Helvetica Neue", "Noto Sans SC", sans-serif;
 }
 
 * {
@@ -14,102 +12,91 @@
   padding: 0;
 }
 
-body {
-  font-family: 'Noto Sans SC', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
+html {
+  scroll-behavior: smooth;
 }
 
-/* 头图区域 */
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--fg);
+  overflow-x: hidden;
+}
+
+/* 1. 全屏暗色 hero */
 .hero {
-  height: 60vh;
-  background: url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1350&q=80") center/cover no-repeat;
-  position: relative;
+  height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #fff;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, .45);
-}
-
-.hero-inner {
   position: relative;
-  z-index: 2;
+  background: radial-gradient(circle, #222 0%, #000 100%);
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: .5em;
+  font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 500;
-  letter-spacing: 2px;
+  height: 1.2em; /* 固定高度，打字机不抖 */
 }
 
 .hero p {
+  margin-top: 1rem;
   font-size: 1.25rem;
-  margin-bottom: 2em;
-  font-weight: 300;
+  color: var(--accent);
 }
 
-.btn {
-  background: var(--main);
-  color: #fff;
-  padding: .75em 1.5em;
-  border-radius: var(--radius);
-  text-decoration: none;
-  transition: background .3s;
+/* 2. 向下箭头 */
+.arrow {
+  position: absolute;
+  bottom: 40px;
+  width: 30px;
+  height: 30px;
+  border: solid var(--fg);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  animation: bounce 2s infinite;
 }
 
-.btn:hover {
-  background: #ff6347;
+@keyframes bounce {
+  0%, 100% { transform: rotate(45deg) translateY(0); }
+  50% { transform: rotate(45deg) translateY(10px); }
 }
 
-/* 文章列表 */
-.posts {
-  max-width: var(--maxWidth);
-  margin: 3rem auto;
-  padding: 0 1rem;
+/* 3. 内容区 */
+.content {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+}
+
+.content h2 {
+  margin-bottom: 2rem;
+  font-weight: 500;
+  color: var(--accent);
 }
 
 article {
-  background: #fff;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  border-radius: var(--radius);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, .05);
+  margin-bottom: 2.5rem;
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
 }
 
 article time {
-  color: var(--muted);
-  font-size: .9rem;
+  font-size: 0.9rem;
+  color: #999;
 }
 
-article h2 {
-  margin: .5em 0 .7em;
-  font-weight: 500;
+article h3 {
+  margin: 0.4rem 0 0.6rem;
+  font-size: 1.4rem;
 }
 
-.read-more {
-  color: var(--main);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.read-more:hover {
-  text-decoration: underline;
-}
-
-/* 页脚 */
+/* 4. 页脚 */
 footer {
   text-align: center;
   padding: 2rem 0;
-  font-size: .9rem;
-  color: var(--muted);
+  font-size: 0.8rem;
+  color: #666;
 }
