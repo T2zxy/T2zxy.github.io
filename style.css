@@ -1,0 +1,115 @@
+/* 全局变量 */
+:root {
+  --main: #ff7f50;
+  --bg: #fafafa;
+  --text: #333;
+  --muted: #777;
+  --radius: 8px;
+  --maxWidth: 720px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Noto Sans SC', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* 头图区域 */
+.hero {
+  height: 60vh;
+  background: url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1350&q=80") center/cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .45);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: .5em;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2em;
+  font-weight: 300;
+}
+
+.btn {
+  background: var(--main);
+  color: #fff;
+  padding: .75em 1.5em;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: background .3s;
+}
+
+.btn:hover {
+  background: #ff6347;
+}
+
+/* 文章列表 */
+.posts {
+  max-width: var(--maxWidth);
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+article {
+  background: #fff;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .05);
+}
+
+article time {
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+article h2 {
+  margin: .5em 0 .7em;
+  font-weight: 500;
+}
+
+.read-more {
+  color: var(--main);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+/* 页脚 */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: .9rem;
+  color: var(--muted);
+}
