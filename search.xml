@@ -21,6 +21,17 @@
     
     <entry>
       <title>小朱宝贝的奇妙世界</title>
+      <link href="/linux/index.html"/>
+      <url>/linux/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>小朱宝贝的奇妙世界</title>
       <link href="/pig/index.html"/>
       <url>/pig/index.html</url>
       
@@ -32,17 +43,6 @@
     
     <entry>
       <title>小朱宝贝的奇妙世界</title>
-      <link href="/linux/index.html"/>
-      <url>/linux/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>巴啦啦能量</title>
       <link href="/pig/index%20copy.html"/>
       <url>/pig/index%20copy.html</url>
       
